@@ -1,1 +1,6 @@
 1. Understand bc-hash-dgm.png
+2. How is merkel root used to find out the block's identity/hash?
+3. Where does the low fee tx go from mempool when high fee tx comes in? is there any place other than mempool and blocks for tx?
+4. what is meant by *tx is accepted(special emphasis on accepted)*?
+5. All the coins are created from the outset - proof of stake? wdtm? where does the coins come from in pos?
+6. pos vs pow vs dbft vs poa vs pob?
