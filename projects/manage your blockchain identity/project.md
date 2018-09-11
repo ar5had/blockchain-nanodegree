@@ -1,0 +1,5 @@
+wallet address - 1JHoNc4exPSTgwduGPAjMkPYC7egxVehs8
+
+message - 1JHoNc4exPSTgwduGPAjMkPYC7egxVehs8: Udacity rocks!
+
+signature - IGpvlgitOH4RQ3KV125iLhxUkH24IrXK4LJAHJoWDYYmNqTUkF+6n2fheSG0mLhfwHXNB6729JO7RKX1E7KOiUM=
