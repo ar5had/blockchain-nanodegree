@@ -6,3 +6,8 @@
 6. pos vs pow vs dbft vs poa vs pob?
 7. 2 million bc mined then no rewward points?
 8. what is a transaction fee?
+9. learn sha 256 again.
+10. learn ecdsa -> sha256 -> ripemd -> base58check and the components that are created in each steps.
+11. hierarichal deterministic wallet.
+12. clear the usecases of all the wallets - ndw, dw, hddw.
+13. 256 bits and hexadecimal and all..
