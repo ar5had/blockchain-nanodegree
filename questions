@@ -12,3 +12,6 @@
 12. clear the usecases of all the wallets - ndw, dw, hddw.
 13. 256 bits and hexadecimal and all..
 14. signing a message.
+15. why is 21million a fixed no total bitcoins?
+16.  Each transaction has a transaction id — and if the same transaction id is in both the inputs and outputs under a particular bitcoin address, then that’s a spent transaction — if not an unspent transaction?
+17. utxo and address hash of change, unspent/spent etc.
