@@ -18,7 +18,7 @@ const addLevelDBData = (key, value) => {
 // Get all the data from levelDB
 const getAllLevelDBData = () => new Promise((resolve, reject) => {
   let dataArray = []
-  db.createReadStream()
+  db.createValueStream()
     .on('data', (data) => {
       dataArray.push(data)
     })
@@ -27,7 +27,7 @@ const getAllLevelDBData = () => new Promise((resolve, reject) => {
     })
     .on('close', () => {
       // sorting the order of enteries by key
-      resolve(dataArray.sort((a, b) => +a.key - b.key));
+      resolve(dataArray.map(e => JSON.parse(e)).sort((a, b) => a.height - b.height));
     })
 })
 
@@ -36,12 +36,12 @@ const getLevelDBData = (key) => {
   return new Promise((resolve, reject) => {
     db.get(key, (err, value) => {
       if (err) return reject(err)
-      resolve(value)
+      resolve(JSON.parse(value))
     })
   })
 }
 
-// Add data to levelDB with value
+
 const addDataToLevelDB = (value) => {
   let i = 0
   db.createReadStream()
