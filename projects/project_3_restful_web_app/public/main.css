@@ -68,3 +68,30 @@ h4 {
     font-size: 14px;
     margin: 30px auto;
 }
+
+form {
+    display: flex;
+
+}
+
+input[type="text"] {
+    flex: 1;
+    border: solid 1px var(--black);
+    border-radius: 0;
+    padding: 10px;
+    font-size: 15px;
+}
+
+input[type="submit"] {
+    width: 100px;
+    border: none;
+    background: var(--black);
+    color: white;
+    border: solid 1px var(--black);
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+form {
+    margin-bottom: 70px
+}

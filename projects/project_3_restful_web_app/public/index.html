@@ -12,6 +12,11 @@
 
 <body>
     <h1>RESTful Web App - Private Blockchain Udacity Project</h1>
+    <h4>Add new block:</h4>
+    <form action="/block" method="POST">
+        <input type="text" name="blockBody" placeholder="body of block..." required/>
+        <input type="submit" value="ADD"/>
+    </form>
     <h4>User Stories:</h4>
     <ul>
         <li>make <b>GET</b> request to <span>/block/[blockheight]</span> to get block data at a particular blockheight</li>
