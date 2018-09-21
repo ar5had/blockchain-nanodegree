@@ -74,7 +74,7 @@ form {
 
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"] {
     flex: 1;
     border: solid 1px var(--black);
     border-radius: 0;

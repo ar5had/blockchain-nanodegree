@@ -25,11 +25,15 @@ app.get('/block/:blockHeight', (req, res) => {
 })
 
 app.post('/block', (req, res) => {
-    const { blockBody } = req.body
-    if(blockBody === '') return res.send(`Can't create block with empty body!`)
-    blockchain.addBlock(new Block(blockBody))
+    const { body } = req.body
+    if (body === '') {
+        return res.json({ error: `can't create block with empty body string` })
+    } else if (body === undefined) {
+        return res.json({ error: `body parameter is not defined` })
+    }
+    blockchain.addBlock(new Block(body))
         .then(block => res.json(block))
-        .catch(err => res.send(`Error occurred while adding new block with body - ${blockBody}`))
+        .catch(err => res.send(`Error occurred while adding new block with body - ${body}`))
 })
 
 app.use((err, req, res, next) => {
