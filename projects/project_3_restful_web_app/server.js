@@ -21,7 +21,7 @@ app.get('/block/:blockHeight', (req, res) => {
     const { blockHeight } = req.params
     blockchain.getBlock(blockHeight)
         .then(block => res.json(block))
-        .catch(err => res.send(`Block #${blockHeight} can't be found on blockchain!`))
+        .catch(err => res.json({ error: `Block #${blockHeight} can't be found on blockchain!` }))
 })
 
 app.post('/block', (req, res) => {
@@ -33,7 +33,7 @@ app.post('/block', (req, res) => {
     }
     blockchain.addBlock(new Block(body))
         .then(block => res.json(block))
-        .catch(err => res.send(`Error occurred while adding new block with body - ${body}`))
+        .catch(err => res.json({ error: `Error occurred while adding new block with body - ${body}` }))
 })
 
 app.use((err, req, res, next) => {
