@@ -78,7 +78,7 @@ class Blockchain {
 
   // Get block height
   getBlockHeight() {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       getAllLevelDBData()
         .then(data => resolve(data.length))
         .catch(reject)

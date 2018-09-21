@@ -9,7 +9,7 @@ const addLevelDBData = (key, value) => {
       if (err) {
         reject(err)
       } else {
-        resolve()
+        resolve(value)
       }
     })
   }))
@@ -18,9 +18,10 @@ const addLevelDBData = (key, value) => {
 // Get all the data from levelDB
 const getAllLevelDBData = () => new Promise((resolve, reject) => {
   let dataArray = []
-  db.createValueStream()
+  db.createReadStream()
     .on('data', (data) => {
-      dataArray.push(data)
+      if(data.key !== 'registeredStars')
+        dataArray.push(data.value)
     })
     .on('error', (err) => {
       reject(err)
