@@ -4,17 +4,7 @@ const {
   getLevelDBData,
   getAllLevelDBData
 } = require('./levelSandbox')
-
-
-class Block {
-  constructor(data) {
-    this.hash = ""
-    this.height = 0
-    this.body = data
-    this.time = 0
-    this.previousBlockHash = ""
-  }
-}
+const {Block} = require('./block')
 
 class Blockchain {
   constructor() {
@@ -78,7 +68,7 @@ class Blockchain {
 
   // Get block height
   getBlockHeight() {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       getAllLevelDBData()
         .then(data => resolve(data.length))
         .catch(reject)
@@ -95,7 +85,19 @@ class Blockchain {
   }
 
   // validate block
-  validateBlock(block) {
+  validateBlock(height, block) {
+    return new Promise((resolve, reject) => {
+      if(height === null && typeof block === 'object') {
+        resolve(this.validate(block))
+      } else {
+        getLevelDBData(height)
+          .then(block => resolve(this.validate(block)))
+          .catch(err => reject(err))
+      }
+    })
+  }
+
+  validate(block) {
     // get block hash
     let blockHash = block.hash
     // remove block hash to test block integrity
@@ -123,7 +125,7 @@ class Blockchain {
             // current block
             const currentBlock = data[i]
             // validate block by sending a clone of the block
-            if (!this.validateBlock(Object.assign({}, currentBlock))) {
+            if (!this.validateBlock(null, Object.assign({}, currentBlock))) {
               errorLog.push(i)
             }
             // compare blocks hash link
@@ -154,3 +156,5 @@ class Blockchain {
     }))
   }
 }
+
+const bc = new Blockchain()

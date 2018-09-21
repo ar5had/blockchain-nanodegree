@@ -1,8 +1,9 @@
 const express = require('express')
 const path = require('path')
 const dotenv = require('dotenv')
-const bodyParser = require('body-parser');
-const { Block, Blockchain } = require('./simpleChain')
+const bodyParser = require('body-parser')
+const { Block } = require('./block')
+const { Blockchain } = require('./simpleChain')
 
 // if node env is not production then load private env vars
 if (process.env.NODE_ENV !== 'production') {

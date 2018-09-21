@@ -4,17 +4,7 @@ const {
   getLevelDBData,
   getAllLevelDBData
 } = require('./levelSandbox')
-
-
-class Block {
-  constructor(data) {
-    this.hash = ""
-    this.height = 0
-    this.body = data
-    this.time = 0
-    this.previousBlockHash = ""
-  }
-}
+const { Block } = require('./block')
 
 class Blockchain {
   constructor() {
