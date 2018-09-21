@@ -59,7 +59,7 @@ class Blockchain {
           // Block height
           newBlock.height = data.length
           // UTC timestamp
-          newBlock.time = new Date().getTime().toString().slice(0, -3)
+          newBlock.time = new Date().getTime().toString()
           // previous block hash
           if (data.length > 0) {
             newBlock.previousBlockHash = data[data.length - 1].hash
