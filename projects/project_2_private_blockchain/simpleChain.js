@@ -4,7 +4,7 @@ const {
   getLevelDBData,
   getAllLevelDBData
 } = require('./levelSandbox')
-const {Block} = require('./block')
+const { Block } = require('./block')
 
 class Blockchain {
   constructor() {
@@ -87,7 +87,7 @@ class Blockchain {
   // validate block
   validateBlock(height, block) {
     return new Promise((resolve, reject) => {
-      if(height === null && typeof block === 'object') {
+      if (height === null && typeof block === 'object') {
         resolve(this.validate(block))
       } else {
         getLevelDBData(height)
