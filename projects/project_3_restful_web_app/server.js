@@ -26,7 +26,7 @@ app.get('/block/:blockHeight', (req, res) => {
 
 app.post('/block', (req, res) => {
     const { body } = req.body
-    if (body === '') {
+    if (body.trim() === '') {
         return res.json({ error: `can't create block with empty body string` })
     } else if (body === undefined) {
         return res.json({ error: `body parameter is not defined` })
