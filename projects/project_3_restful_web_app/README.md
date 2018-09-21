@@ -17,7 +17,23 @@ Installing Node and NPM is pretty straightforward using the installer package av
 npm install
 ```
 
+## Running project
+- Create `.env` file in root of the project which will have our custom node env vars
+```
+# Sample .env file
+PORT = 8000
+NODE_ENV = development
+```
+
+- Run command
+```
+npm start
+```
+and now open `localhost:<PORT>` in your browser window.
+
 ## Testing
+
+### `simpleChain.js`
 
 To test code:
 1: Open a command prompt or shell terminal after install node.js.
@@ -50,3 +66,10 @@ blockchain.mutateBlock(blockHeight, newBlock);
 ```
 blockchain.validateChain();
 ```
+### `index.js`
+
+- GET req to `/block/[blockheight]` return block at that particular block height
+
+- POST req to `/block` with `blockBody` key creates new block on blockchain with value of `blockBody`
+
+**Open `localhost:<PORT>` to see more info about the endpoints**
