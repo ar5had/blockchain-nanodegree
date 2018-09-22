@@ -70,7 +70,7 @@ class Blockchain {
   getBlockHeight() {
     return new Promise((resolve, reject) => {
       getAllLevelDBData()
-        .then(data => resolve(data.length))
+        .then(data => resolve(data.length - 1))
         .catch(reject)
     })
   }
@@ -156,5 +156,3 @@ class Blockchain {
     }))
   }
 }
-
-const bc = new Blockchain()
