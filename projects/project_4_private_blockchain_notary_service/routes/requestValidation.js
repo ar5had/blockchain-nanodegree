@@ -18,7 +18,7 @@ app.post('/requestValidation', (req, res) => {
     }
 
     if (starRegistry.hasOwnProperty(address)) {
-        return res.json({ error: 'Already made a request for validation with same address!' })
+        return res.json(Object.assign({}, json, {requestTimeStamp: starRegistry[address].timestamp}))
     }
 
     starRegistry[address] = { message, timestamp, validationWindow, isVerified: false }
