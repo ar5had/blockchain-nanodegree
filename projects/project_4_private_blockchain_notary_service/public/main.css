@@ -45,11 +45,17 @@ ul {
 }
 
 p {
-    background: #efefef;
-    padding: 20px;
+    /* background: #efefef;
+    padding: 20px; */
     margin-top: 0;
     border-radius: 0;
     word-break: break-all;
+}
+
+pre {
+    padding: 20px;
+    margin: 20px 0 40px;
+    background: #efefef;
 }
 
 h1 {

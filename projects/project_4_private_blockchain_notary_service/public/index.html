@@ -11,9 +11,111 @@
 </head>
 
 <body>
-    <h1>Private Star Notary Service</h1>
-    <h4>Example usage:</h4>
-    <p>[GET] /block/0</p>
+    <h1>
+        <a id="Private_Notary_Service_0"></a>Private Notary Service</h1>
+    <p>A Star Registry service that allows users to claim ownership of their favorite star in the night
+        sky.</p>
+    <h2>
+        <a id="Architecture_4"></a>Architecture</h2>
+    <p>Local Server</p>
+    <ul>
+        <li>Node.js</li>
+        <li>Express.js</li>
+    </ul>
+    <h2>
+        <a id="Getting_Started_9"></a>Getting Started</h2>
+    <p>These instructions will get you a copy of the project up and running on your local machine for development
+        and testing purposes.</p>
+    <h3>
+        <a id="Prerequisites_13"></a>Prerequisites</h3>
+    <p>Installing Node and NPM is pretty straightforward using the installer package available from the
+        (Node.js® web site)[
+        <a href="https://nodejs.org/en/">https://nodejs.org/en/</a>].</p>
+    <h3>
+        <a id="Configuring_your_project_17"></a>Configuring your project</h3>
+    <ul>
+        <li>Clone/Download the project and cd into the root folder</li>
+        <li>Install all dependencies via npm.</li>
+    </ul>
+    <pre><code>npm install
+</code></pre>
+    <h2>
+        <a id="Running_project_24"></a>Running project</h2>
+    <ul>
+        <li>Create
+            <code>.env</code> file in root of the project which will have our custom node env vars</li>
+    </ul>
+    <pre><code># Sample .env file
+PORT = 8000
+NODE_ENV = development
+</code></pre>
+    <ul>
+        <li>Run command</li>
+    </ul>
+    <pre><code>npm start
+</code></pre>
+    <p>and now open
+        <code>localhost:&lt;PORT&gt;</code> in your browser window.</p>
+    <h2>
+        <a id="Endpoints_38"></a>Endpoints</h2>
+    <h3>
+        <a id="GET_endpoint_40"></a>GET endpoint</h3>
+    <p>
+        <strong>Get a registered star with a particular hash</strong>
+    </p>
+    <pre><code>http://localhost:&lt;PORT&gt;/stars/hash:&lt;hash&gt;
+</code></pre>
+    <p>
+        <strong>Get allregistered stars belonging to a particular address</strong>
+    </p>
+    <pre><code>http://localhost:&lt;PORT&gt;/stars/address:&lt;address&gt;
+</code></pre>
+    <h3>
+        <a id="POST_endpoint_51"></a>POST endpoint</h3>
+    <p>
+        <strong>Create star registeration request</strong>
+    </p>
+    <pre><code>http://localhost:&lt;PORT&gt;/requestValidation
+</code></pre>
+    <p>
+        <strong>Params</strong>
+    </p>
+    <pre><code>{
+  &quot;address&quot;: &quot;1JHoNc4exPSTgwduGPAjMkPYC7egxVehs8&quot;
+}
+</code></pre>
+    <p>
+        <strong>Verify identity by signing the message returned in response of star registeration request</strong>
+    </p>
+    <pre><code>http://localhost:&lt;PORT&gt;/message-signature/validate
+</code></pre>
+    <p>
+        <strong>Params</strong>
+    </p>
+    <pre><code>{
+  &quot;address&quot;: &quot;1JHoNc4exPSTgwduGPAjMkPYC7egxVehs8&quot;
+  &quot;signature&quot;:  &quot;H/T40wjVKxHdsgApFhBXm2kNotxY4HERYbZZvYvT9IuAU8d78pf5I6/8WWGQ2dMows6GIVKZYrfoTprRnaTMB54=&quot;
+}
+</code></pre>
+    <p>
+        <strong>Register Star</strong>
+    </p>
+    <pre><code>http://localhost:&lt;PORT&gt;/block
+</code></pre>
+    <p>
+        <strong>Params</strong>
+    </p>
+    <pre><code>{
+  &quot;address&quot;: &quot;1JHoNc4exPSTgwduGPAjMkPYC7egxVehs8&quot;,
+  &quot;star&quot;: {
+    &quot;dec&quot;: &quot;-26° 29'\'' 24.9&quot;,
+    &quot;ra&quot;: &quot;16h 29m 1.0s&quot;,
+    &quot;story&quot;: &quot;Found star using https://www.google.com/sky/&quot;
+    &quot;constellation&quot;: &quot;&quot;[Optional]
+    &quot;mag&quot;: &quot;&quot;[Optional]
+  }
+}
+</code></pre>
 </body>
 
 </html>
